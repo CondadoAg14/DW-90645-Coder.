@@ -32,7 +32,7 @@ nav a {
   font-weight: bold;
 }
 
-nav a:hover {
+nav a {
   text-decoration: underline;
 }
 
@@ -62,7 +62,7 @@ label {
   font-weight: bold;
 }
 
-select, input[type="number"] {
+select, input {
   padding: 8px;
   font-size: 1rem;
   flex: 1;
@@ -82,7 +82,7 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+button {
   background-color: #2980b9;
 }
 
@@ -107,13 +107,4 @@ button:hover {
   font-weight: bold;
   text-align: right;
   margin-bottom: 10px;
-}
-
-
-footer {
-  text-align: center;
-  padding: 15px;
-  background-color: #ddd;
-  margin-top: 40px;
-  color: #555;
 }
