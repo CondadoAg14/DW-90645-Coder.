@@ -1,74 +1,68 @@
-const gaseosas = 3500;
-const snacks = 2500;
-const galletas = 2000;
-const alcohol = 9000;
-const caramelos = 1000;
-const yerba = 5000;
-const azucar = 4000;
-
 let carrito = [];
 
-function agregarGaseosas(cantidad) {
-  agregarProducto("gaseosas", gaseosas, cantidad);
-}
+const precios = {
+  gaseosas: 3500,
+  snacks: 2500,
+  galletas: 2000,
+  alcohol: 9000,
+  caramelos: 1000,
+  yerba: 5000,
+  azucar: 4000
+};
 
-function agregarSnacks(cantidad) {
-  agregarProducto("snacks", snacks, cantidad);
-}
+document.getElementById("form-producto").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-function agregarGalletas(cantidad) {
-  agregarProducto("galletas", galletas, cantidad);
-}
+  let nombre = document.getElementById("producto").value;
+  let cantidad = parseInt(document.getElementById("cantidad").value);
 
-function agregarAlcohol(cantidad) {
-  agregarProducto("alcohol", alcohol, cantidad);
-}
+  if (cantidad > 0) {
+    let precio = precios[nombre];
+    let subtotal = precio * cantidad;
 
-function agregarCaramelos(cantidad) {
-  agregarProducto("caramelos", caramelos, cantidad);
-}
-
-function agregarYerba(cantidad) {
-  agregarProducto("yerba", yerba, cantidad);
-}
-
-function agregarAzucar(cantidad) {
-  agregarProducto("azucar", azucar, cantidad);
-}
-
-function agregarProducto(nombre, precio, cantidad) {
-  const item = {
-    nombre: nombre,
-    cantidad: cantidad,
-    precio: precio,
-    subtotal: precio * cantidad
-  };
-  carrito[carrito.length] = item;
-  console.log("Agregado: " + cantidad + " x " + nombre + " ($" + item.subtotal + ")");
-}
-
-function mostrarCarrito() {
-  console.log("Contenido del carrito:");
-  let i = 0;
-  while (i < carrito.length) {
-    const item = carrito[i];
-    console.log(item.cantidad + " x " + item.nombre + " = $" + item.subtotal);
-    i = i + 1;
+    // Guardamos como string: "producto,cantidad,precio,subtotal"
+    let linea = nombre + "," + cantidad + "," + precio + "," + subtotal;
+    carrito.push(linea);
+    guardarCarritoPlano();
+    mostrarCarritoPlano();
   }
-}
+});
 
-function calcularTotal() {
-  let total = 0;
-  let i = 0;
-  while (i < carrito.length) {
-    total = total + carrito[i].subtotal;
-    i = i + 1;
-  }
-  console.log("TOTAL: $" + total);
-  return total;
-}
-
-function vaciarCarrito() {
+document.getElementById("vaciar").addEventListener("click", function () {
   carrito = [];
-  console.log("Carrito vaciado.");
+  localStorage.setItem("carrito", "");
+  mostrarCarritoPlano();
+});
+
+function guardarCarritoPlano() {
+  localStorage.setItem("carrito", carrito.join("\n"));
 }
+
+function mostrarCarritoPlano() {
+  let contenedor = document.getElementById("carrito-container");
+  contenedor.innerHTML = "";
+
+  let datosGuardados = localStorage.getItem("carrito");
+  let total = 0;
+
+  if (datosGuardados && datosGuardados.trim() !== "") {
+    let lineas = datosGuardados.split("\n");
+
+    for (let i = 0; i < lineas.length; i++) {
+      let partes = lineas[i].split(",");
+      let nombre = partes[0];
+      let cantidad = partes[1];
+      let subtotal = partes[3];
+
+      let div = document.createElement("div");
+      div.textContent = cantidad + " x " + nombre + " = $" + subtotal;
+      contenedor.appendChild(div);
+
+      total += parseInt(subtotal);
+    }
+  }
+
+  document.getElementById("total").textContent = "TOTAL: $" + total;
+}
+
+mostrarCarritoPlano();
