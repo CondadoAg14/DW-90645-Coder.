@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
-  background-color: #f2f2f2;
+  margin: 0;
+  background-color: #f4f4f4;
   color: #333;
 }
 
@@ -10,39 +10,75 @@ h1, h2 {
   color: #2c3e50;
 }
 
+
+header {
+  background-color: #3498db;
+  color: white;
+  padding: 20px 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-section {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
 form {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  padding: 15px;
-  border-radius: 5px;
-  max-width: 600px;
-  margin: 0 auto 30px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  justify-content: space-between;
+  gap: 15px;
 }
 
 label {
   flex-basis: 100%;
-  margin-bottom: 5px;
   font-weight: bold;
 }
 
-select, input {
+select, input[type="number"] {
   padding: 8px;
   font-size: 1rem;
   flex: 1;
   min-width: 120px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 button {
-  padding: 8px 15px;
+  padding: 10px 15px;
   background-color: #3498db;
   color: white;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   font-size: 1rem;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
@@ -50,19 +86,34 @@ button:hover {
   background-color: #2980b9;
 }
 
+
+.carrito-section {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 20px;
+}
+
 #carrito-container {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  padding: 15px;
-  max-width: 600px;
-  margin: 0 auto;
-  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #fefefe;
+  border: 1px dashed #ccc;
+  min-height: 50px;
 }
 
 #total {
-  max-width: 600px;
-  margin: 10px auto;
   font-size: 1.1rem;
   font-weight: bold;
   text-align: right;
+  margin-bottom: 10px;
+}
+
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #ddd;
+  margin-top: 40px;
+  color: #555;
 }

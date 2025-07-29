@@ -9,11 +9,20 @@
 <body>
 
   <header>
-    <h1>Carrito de Compras</h1>
+    <h1>E-Commerce</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Carrito</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <section>
+    <section class="form-section">
+      <h2>Agregar producto</h2>
       <form id="form-producto">
         <label for="producto">Producto:</label>
         <select id="producto" name="producto">
@@ -33,13 +42,19 @@
       </form>
     </section>
 
-    <section>
+    <section class="carrito-section">
       <h2>Carrito</h2>
-      <div id="carrito-container"></div>
-      <div id="total"></div>
+      <div id="carrito-container">
+        <!-- Aquí se agregan los productos -->
+      </div>
+      <div id="total">Total: $0</div>
       <button id="vaciar">Vaciar carrito</button>
     </section>
   </main>
+
+  <footer>
+    <p>&copy; 2025 E-Commerce. Todos los derechos reservados.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
