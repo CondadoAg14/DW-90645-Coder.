@@ -2,7 +2,7 @@ let carrito = [];
 let precios = {};
 
 // Cargar productos desde un archivo JSON simulado
-fetch("productos.json")
+fetch("../json/productos.json")
   .then(response => response.json())
   .then(data => {
     data.forEach(producto => {
