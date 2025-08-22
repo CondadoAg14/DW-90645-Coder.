@@ -1,7 +1,7 @@
 let carrito = [];
 let precios = {};
 
-fetch("./json/productos.json")
+fetch("../json/productos.json")
   .then(response => {
     if (!response.ok) {
       throw new Error(`Error HTTP: ${response.status}`);
