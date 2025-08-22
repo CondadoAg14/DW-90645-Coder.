@@ -1,7 +1,7 @@
 let carrito = [];
 let precios = {};
 
-fetch("../json/productos.json")
+fetch("https://condadoag14.github.io/DW-90645-Coder./json/productos.json")
   .then(response => {
     if (!response.ok) {
       throw new Error(`Error HTTP: ${response.status}`);
