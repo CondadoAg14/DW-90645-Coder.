@@ -1,7 +1,6 @@
 let carrito = [];
 let precios = {};
 
-// Cargar productos desde un archivo JSON simulado
 fetch("../json/productos.json")
   .then(response => response.json())
   .then(data => {
@@ -9,7 +8,6 @@ fetch("../json/productos.json")
       precios[producto.nombre] = producto.precio;
     });
 
-    // Poblar el selector con los productos
     const selectProducto = document.getElementById("producto");
     data.forEach(producto => {
       const option = document.createElement("option");
@@ -28,7 +26,6 @@ fetch("../json/productos.json")
     });
   });
 
-// Evento para agregar productos al carrito
 document.getElementById("form-producto").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -59,7 +56,6 @@ document.getElementById("form-producto").addEventListener("submit", function (e)
   });
 });
 
-// Vaciar el carrito
 document.getElementById("vaciar").addEventListener("click", function () {
   if (carrito.length === 0) {
     Swal.fire({
@@ -84,7 +80,7 @@ document.getElementById("vaciar").addEventListener("click", function () {
       mostrarCarritoPlano();
 
       Swal.fire({
-        icon: "success",
+        icon: "Exito",
         title: "Carrito vaciado",
         text: "Todos los productos han sido eliminados."
       });
@@ -92,12 +88,10 @@ document.getElementById("vaciar").addEventListener("click", function () {
   });
 });
 
-// Guardar carrito en localStorage
 function guardarCarritoPlano() {
   localStorage.setItem("carrito", carrito.join("\n"));
 }
 
-// Mostrar contenido del carrito
 function mostrarCarritoPlano() {
   const contenedor = document.getElementById("carrito-container");
   contenedor.innerHTML = "";
