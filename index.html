@@ -4,20 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>E-Commerce</title>
-  <link rel="stylesheet" href="./css/style.css"/>
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
   <header>
     <h1>E-Commerce</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Productos</a></li>
-        <li><a href="#">Carrito</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-    </nav>
   </header>
 
   <main>
@@ -25,14 +18,8 @@
       <h2>Agregar producto</h2>
       <form id="form-producto">
         <label for="producto">Producto:</label>
-        <select id="producto" name="producto">
-          <option value="gaseosas">Gaseosas</option>
-          <option value="snacks">Snacks</option>
-          <option value="galletas">Galletas</option>
-          <option value="alcohol">Alcohol</option>
-          <option value="caramelos">Caramelos</option>
-          <option value="yerba">Yerba</option>
-          <option value="azucar">Azúcar</option>
+        <select id="producto" name="producto" required>
+          <option value="" disabled selected>Selecciona un producto</option>
         </select>
 
         <label for="cantidad">Cantidad:</label>
@@ -45,13 +32,12 @@
     <section class="carrito-section">
       <h2>Carrito</h2>
       <div id="carrito-container">
-      <!-- Aqui se agregara el contenido del carrito (a completar mas adelante de forma correcta)-->
+
       </div>
-      <div id="total">Total: $0</div>
+      <div id="total">TOTAL: $0</div>
       <button id="vaciar">Vaciar carrito</button>
     </section>
   </main>
-
 
   <script src="./js/main.js"></script>
 </body>

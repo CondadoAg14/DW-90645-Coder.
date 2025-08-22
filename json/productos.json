@@ -1,0 +1,9 @@
+[
+  { "nombre": "gaseosas", "precio": 3500 },
+  { "nombre": "snacks", "precio": 2500 },
+  { "nombre": "galletas", "precio": 2000 },
+  { "nombre": "alcohol", "precio": 9000 },
+  { "nombre": "caramelos", "precio": 1000 },
+  { "nombre": "yerba", "precio": 5000 },
+  { "nombre": "azucar", "precio": 4000 }
+]
