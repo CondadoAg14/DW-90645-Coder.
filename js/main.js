@@ -2,7 +2,12 @@ let carrito = [];
 let precios = {};
 
 fetch("./json/productos.json")
-  .then(response => response.json())
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Error HTTP: ${response.status}`);
+    }
+    return response.json();
+  })
   .then(data => {
     data.forEach(producto => {
       precios[producto.nombre] = producto.precio;
@@ -80,7 +85,7 @@ document.getElementById("vaciar").addEventListener("click", function () {
       mostrarCarritoPlano();
 
       Swal.fire({
-        icon: "Exito",
+        icon: "success",
         title: "Carrito vaciado",
         text: "Todos los productos han sido eliminados."
       });
